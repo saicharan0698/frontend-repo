@@ -59,7 +59,7 @@ pipeline {
             sed -i "s|REPLACE_IMAGE_REPO|$ECR_REGISTRY/$ECR_REPO|g" ./helm/values.yaml
             sed -i "s|REPLACE_IMAGE_TAG|$IMAGE_TAG|g"               ./helm/values.yaml
 
-            aws eks update-kubeconfig --region $AWS_REGION --name $EKS_CLUSTER
+            aws eks update-kubeconfig --region $AWS_REGION --name $EKS_CLUSTER --overwrite-existing
 
             helm upgrade --install frontend-dev ./helm \
               --namespace dev \
