@@ -2,10 +2,10 @@ pipeline {
   agent any
 
   environment {
-    AWS_REGION   = 'ap-south-1'
-    ECR_REGISTRY = '123456789012.dkr.ecr.ap-south-1.amazonaws.com'
-    ECR_REPO     = 'frontend'
-    EKS_CLUSTER  = 'cloudangles-managed'
+    AWS_REGION   = 'us-east-1'
+    ECR_REGISTRY = '223425500491.dkr.ecr.us-east-1.amazonaws.com/frontend-repo'
+    ECR_REPO     = 'frontend-repo'
+    EKS_CLUSTER  = 'my-eks-cluster'
     IMAGE_TAG    = "${env.GIT_COMMIT[0..6]}"
     IMAGE_FULL   = "${ECR_REGISTRY}/${ECR_REPO}:${IMAGE_TAG}"
   }
@@ -14,7 +14,7 @@ pipeline {
 
     stage('Checkout') {
       steps {
-        git branch: 'main', url: 'https://github.com'
+        git branch: 'master', url: 'https://github.com/saicharan0698/frontend-repo'
       }
     }
 
