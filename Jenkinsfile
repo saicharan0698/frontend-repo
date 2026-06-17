@@ -3,7 +3,7 @@ pipeline {
 
   environment {
     AWS_REGION   = 'us-east-1'
-    ECR_REGISTRY = '223425500491.dkr.ecr.us-east-1.amazonaws.com/frontend-repo'
+    ECR_REGISTRY = '223425500491.dkr.ecr.us-east-1.amazonaws.com'
     ECR_REPO     = 'frontend-repo'
     EKS_CLUSTER  = 'my-eks-cluster'
     IMAGE_TAG    = "${env.GIT_COMMIT[0..6]}"
