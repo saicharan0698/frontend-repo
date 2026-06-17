@@ -60,7 +60,15 @@ pipeline {
             sed -i "s|REPLACE_IMAGE_TAG|$IMAGE_TAG|g"               ./helm/values.yaml
 
             aws eks update-kubeconfig --region $AWS_REGION --name $EKS_CLUSTER
+            aws --version
 
+            aws sts get-caller-identity
+            
+            kubectl config current-context
+            
+            kubectl get nodes
+            
+            kubectl auth can-i '*' '*' --all-namespaces
             helm upgrade --install frontend-dev ./helm \
               --namespace dev \
               --values ./helm/values.yaml \
