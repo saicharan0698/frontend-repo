@@ -70,7 +70,6 @@ pipeline {
             
             kubectl auth can-i '*' '*' --all-namespaces
             helm upgrade --install frontend-dev ./helm \
-              --namespace dev \
               --values ./helm/values.yaml \
               --wait
           '''
